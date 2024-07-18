@@ -29,7 +29,8 @@ export default class Tweets extends Component {
     });
   }
 
-  handleFormSubmit = async () => {
+  handleFormSubmit = async (event) => {
+    event.preventDefault();
     this.setState({
       loading: true,
     })
@@ -183,94 +184,100 @@ export default class Tweets extends Component {
       loading,
     } = this.state;
     return (
-        <Fragment>
+      <Fragment>
+        <form
+          onSubmit={this.handleFormSubmit}
+          id="input-form"
+        >
           <input
-              onChange={this.handleUsernameChange}
-              placeholder="Enter user name"
-              className="username-input-box"
-              value={username}
+            id="input-box"
+            onChange={this.handleUsernameChange}
+            placeholder="Enter user name"
+            className="username-input-box"
+            value={username}
           />
           <button
-            onClick={this.handleFormSubmit}
             className="submit-button"
+            type="submit"
           >
             {loading ? (
               <span className="loader"/>
             ) : (
               <span className="submit-button-text">
-                Submit
-              </span>
+              Submit
+            </span>
             )}
           </button>
-          {loading ? (
-            <div className="stats-loader-container">
-              <div className="loader loader_stats"/>
-            </div>
-          ) : (
-            <div className="grid-container">
-              <div className="tweets-data-container">
-                <div
-                  className="stats-box"
+        </form>
+        {loading ? (
+          <div className="stats-loader-container">
+            <div className="loader loader_stats"/>
+          </div>
+        ) : (
+          <div className="grid-container">
+            <div className="tweets-data-container">
+              <div
+                className="stats-box"
+              >
+                <span className="stats-box-heading">
+                  Most Popular hashtag:
+                </span>
+                <span
+                  id="most-popular-hashtag"
+                  className="stats-box-info"
                 >
-                  <span className="stats-box-heading">
-                    Most Popular hashtag:
-                  </span>
-                  <span
-                    data-testid="most-popular-hashtag"
-                    className="stats-box-info"
-                  >
-                    {mostPopularHashTag}
-                  </span>
-                </div>
-              </div>
-              <div className="tweets-data-container">
-                <div
-                  className="stats-box"
-                >
-                  <span className="stats-box-heading">
-                    Most Tweets In One Day:
-                  </span>
-                  <span
-                    className="stats-box-info"
-                    data-testid="most-tweets-in-one-day"
-                  >
-                    {mostTweetsInOneDay}
-                  </span>
-                </div>
-              </div>
-              <div className="tweets-data-container">
-                <div
-                  className="stats-box"
-                >
-                  <span className="stats-box-heading">
-                    Longest Tweet ID:
-                  </span>
-                  <span
-                    className="stats-box-info"
-                    data-testid="highest-tweet-id-prefix"
-                  >
-                    {longestTweetIdPrefix}
-                  </span>
-                </div>
-              </div>
-              <div className="tweets-data-container">
-                <div
-                  className="stats-box"
-                >
-                  <span className="stats-box-heading">
-                    Most days between tweets:
-                  </span>
-                  <span
-                    className="stats-box-info"
-                    data-testid="most-days-between-tweets"
-                  >
-                    {mostDaysBetweenTweets}
-                  </span>
-                </div>
+                  {mostPopularHashTag}
+                </span>
               </div>
             </div>
-          )}
-        </Fragment>
+            <div className="tweets-data-container">
+              <div
+                className="stats-box"
+              >
+                <span className="stats-box-heading">
+                  Most Tweets In One Day:
+                </span>
+                <span
+                  className="stats-box-info"
+                  id="most-tweets"
+                >
+                  {mostTweetsInOneDay}
+                </span>
+              </div>
+            </div>
+            <div className="tweets-data-container">
+              <div
+                className="stats-box"
+              >
+                <span className="stats-box-heading">
+                  Longest Tweet ID:
+                </span>
+                <span
+                  className="stats-box-info"
+                  id="longest-tweet-id"
+                >
+                  {longestTweetIdPrefix}
+                </span>
+              </div>
+            </div>
+            <div className="tweets-data-container">
+              <div
+                className="stats-box"
+              >
+                <span className="stats-box-heading">
+                  Most days between tweets:
+                </span>
+                <span
+                  className="stats-box-info"
+                  id="most-days"
+                >
+                  {mostDaysBetweenTweets}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+      </Fragment>
     )
   }
 }
