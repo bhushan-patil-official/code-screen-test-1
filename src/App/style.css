@@ -1,0 +1,76 @@
+.app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  flex-direction: column;
+}
+
+.username-input-box {
+  height: 48px;
+  width: 460px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 50px 0 rgba(125,125,167,0);
+  margin: auto;
+  border: transparent;
+  padding: 0 16px;
+  font-size: 16px;
+  color: #87878A;
+  letter-spacing: 0;
+  line-height: 56px;
+}
+
+.username-input-box::placeholder {
+  height: 32px;
+  width: 151px;
+  color: #87878A;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 56px;
+  margin-left: 24px;
+  position: relative;
+  /*bottom: 3px;*/
+  /*left: 8px;*/
+}
+
+.enter-user-name {
+  height: 32px;
+  width: 151px;
+  color: #87878A;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 56px;
+  margin-left: 24px;
+  position: relative;
+  bottom: 3px;
+}
+
+.submit-button {
+  height: 40px;
+  width: 138px;
+  border-radius: 10px;
+  background-color: #FFBB4B;
+  box-shadow: 0 10px 50px 0 rgba(255,187,75,0.2);
+  margin: auto;
+  margin-top: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: transparent;
+}
+
+.submit-button-text {
+  /*height: 24px;*/
+  /*width: 58px;*/
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.88px;
+  line-height: 56px;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  /*bottom: 7px;*/
+  /*margin-left: 40px;*/
+}
