@@ -80,7 +80,7 @@ export default class Tweets extends Component {
           const words = tweet.text.split(' ');
           words.forEach(word => {
               if (word.startsWith('#')) {
-                  const hashTag = word.slice(1).toLowerCase();
+                  const hashTag = word.slice(1);
                   hashTagMap[hashTag] = (hashTagMap[hashTag] || 0) + 1;
                   if (hashTagMap[hashTag] > maxCount) {
                       maxCount = hashTagMap[hashTag];
